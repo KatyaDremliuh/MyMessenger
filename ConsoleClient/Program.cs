@@ -6,6 +6,9 @@ namespace ConsoleClient
     {
         static void Main(string[] args)
         {
+            Message msg = new Message();
+
+            Console.WriteLine(msg);
             Console.WriteLine("Hello World!");
         }
     }
