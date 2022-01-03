@@ -2,6 +2,8 @@
 
 namespace ConsoleClient
 {
+    // для сериализации нужен публичный класс
+    [Serializable]
     public class Message
     {
         public string UserName { get; set; } // логин или никнем, под кот. отправляем смс
