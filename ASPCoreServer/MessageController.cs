@@ -4,13 +4,13 @@ namespace ConsoleClient
 {
     // для сериализации нужен публичный класс
     [Serializable]
-    public class Message
+    public class MessageController
     {
         public string UserName { get; set; } // логин или никнем, под кот. отправляем смс
         public string MessageText { get; set; } // само смс
         public DateTime TimeStamp { get; set; } // время, когда было отправлено смс
 
-        public Message(string userName, string messageText, DateTime timeStamp)
+        public MessageController(string userName, string messageText, DateTime timeStamp)
         {
             UserName = userName;
             MessageText = messageText;
@@ -18,7 +18,7 @@ namespace ConsoleClient
         }
 
         // ctor по умолчанию
-        public Message()
+        public MessageController()
         {
             UserName = "System";
             MessageText = "Server is running...";

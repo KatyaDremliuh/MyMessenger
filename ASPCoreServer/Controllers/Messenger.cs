@@ -12,7 +12,7 @@ namespace ASPCoreServer.Controllers
     [ApiController]
     public class Messenger : ControllerBase
     {
-        static List<Message> ListOfMessages = new List<Message>();
+        static List<MessageController> ListOfMessages = new List<MessageController>();
         // GET api/<Messenger>/5
         [HttpGet("{id}")]
         public string Get(int id)
@@ -32,7 +32,7 @@ namespace ASPCoreServer.Controllers
 
         // POST api/<Messenger>
         [HttpPost]
-        public IActionResult SendMessage([FromBody] Message msg)
+        public IActionResult SendMessage([FromBody] MessageController msg)
         {
             if (msg == null)
             {
