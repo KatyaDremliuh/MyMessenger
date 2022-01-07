@@ -10,6 +10,8 @@ namespace ConsoleClient
 {
     class MessengerClientAPI
     {
+        private static readonly HttpClient client = new HttpClient();
+
         public void TestNewtonsoftJson()
         {
             Message msg = new Message("RR", "Hi!", DateTime.UtcNow);
@@ -49,6 +51,19 @@ namespace ConsoleClient
             if (status.ToLower() == "ok" && responseFromServer != "Not found")
             {
                 Message deserializedMsg = JsonConvert.DeserializeObject<Message>(responseFromServer);
+                return deserializedMsg;
+            }
+
+            return null;
+        }
+
+        public async Task<Message> GetMessageHTTPAsync(int messageId)
+        {
+            var responseString = await client.GetStringAsync("http://localhost:5000/api/Messenger/");
+
+            if (responseString != null)
+            {
+                Message deserializedMsg = JsonConvert.DeserializeObject<Message>(responseString);
                 return deserializedMsg;
             }
 
